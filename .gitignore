@@ -1,0 +1,4 @@
+test-designs/
+*.pen
+.DS_Store
+Thumbs.db
