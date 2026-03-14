@@ -40,24 +40,68 @@ Every output is scored **0-10** with a weighted rubric across:
 
 ## Installation
 
-### Claude Code
+### Option 1: Plugin (recommended)
 
-Add to your project's `CLAUDE.md` or `.claude/settings.json`:
+Install as a Claude Code plugin in 2 commands. Run these inside a Claude Code session:
 
-```json
-{
-  "skills": [
-    "github:ahmadmosama/ultimate-frontend-design-skill"
-  ]
-}
+```
+/plugin marketplace add ahmadmosama/ultimate-frontend-design-skill
+/plugin install ultimate-frontend-design@ahmadmosama-ultimate-frontend-design-skill
 ```
 
-### Manual
+Once installed, use it with `/ultimate-frontend-design` in any project.
 
-Clone and reference locally:
+### Option 2: Manual (per-project)
+
+Clone and copy into your project's `.claude/skills/` directory:
 
 ```bash
 git clone https://github.com/ahmadmosama/ultimate-frontend-design-skill.git
+cp -r ultimate-frontend-design-skill/skills/ultimate-frontend-design .claude/skills/
+```
+
+Then `/ultimate-frontend-design` is available in that project.
+
+### Option 3: Manual (global)
+
+Install globally so it's available in every project on your machine:
+
+```bash
+git clone https://github.com/ahmadmosama/ultimate-frontend-design-skill.git
+cp -r ultimate-frontend-design-skill/skills/ultimate-frontend-design ~/.claude/skills/
+```
+
+## Usage
+
+Once installed, invoke the skill in any Claude Code session:
+
+```
+/ultimate-frontend-design
+```
+
+Then describe your UI task. The skill will guide Claude through building, reviewing, or improving your frontend with professional-grade design principles.
+
+## Project Structure
+
+```
+.claude-plugin/
+  plugin.json              # Plugin manifest
+skills/
+  ultimate-frontend-design/
+    SKILL.md               # Main skill (19 core sections)
+    references/
+      typography-and-fonts.md
+      color-and-theming.md
+      layout-and-responsive.md
+      components-and-states.md
+      animation-and-motion.md
+      accessibility.md
+      mobile-patterns.md
+      design-psychology.md
+      advanced-patterns.md
+      ecosystem-and-libraries.md
+      cutting-edge-css-2024-2026.md
+      performance-and-polish.md
 ```
 
 ## Reference Files
