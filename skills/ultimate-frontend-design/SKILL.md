@@ -1,6 +1,6 @@
 ---
 name: ultimate-frontend-design
-description: 'Complete frontend design system for web and mobile apps. Use on ANY UI task: building screens, reviewing designs, fixing layouts, choosing colors, adding animation, improving usability, or designing components. Covers visual hierarchy, typography, spacing, color systems, depth, motion, usability, accessibility, mobile-native patterns (iOS/Android), components, ecosystem libraries, forms, data display, design psychology, modern CSS, performance, and interaction design. Scores every output 0-10 with weighted rubric. Backed by 12 reference files with 8,000+ lines of patterns, code, and techniques.'
+description: 'Complete frontend design system for web and mobile apps. Use on ANY UI task: building screens, reviewing designs, fixing layouts, choosing colors, adding animation, improving usability, or designing components. Covers visual hierarchy, typography, spacing, color systems, depth, motion, usability, accessibility, mobile-native patterns (iOS/Android), components, ecosystem libraries, 3D/immersive web (Spline, R3F, scroll-driven frame animations), forms, data display, design psychology, modern CSS, performance, and interaction design. Scores every output 0-10 with weighted rubric. Backed by 13 reference files with 10,000+ lines of patterns, code, and techniques.'
 license: MIT
 metadata:
   author: synthesized
@@ -9,7 +9,7 @@ metadata:
 
 # Ultimate Frontend Design System
 
-A complete, opinionated design framework for building professional web and mobile interfaces. 19 core sections + 12 deep-dive reference files. Synthesized from Refactoring UI, Apple HIG, Material Design 3, WCAG 2.2, Nielsen's heuristics, Don Norman's design principles, Gestalt psychology, cognitive load theory, and the craft standards of award-winning agencies (Locomotive, Studio Freight, AREA 17, Active Theory).
+A complete, opinionated design framework for building professional web and mobile interfaces. 20 core sections + 13 deep-dive reference files. Synthesized from Refactoring UI, Apple HIG, Material Design 3, WCAG 2.2, Nielsen's heuristics, Don Norman's design principles, Gestalt psychology, cognitive load theory, and the craft standards of award-winning agencies (Locomotive, Studio Freight, AREA 17, Active Theory).
 
 ## Core Principle
 
@@ -823,7 +823,62 @@ See: [references/cutting-edge-css-2024-2026.md](references/cutting-edge-css-2024
 
 ---
 
-## 19. Mandatory Pre-Design Context
+## 19. 3D & Immersive Web Design
+
+Modern premium websites use 3D elements and scroll-driven animations to create Apple-quality experiences. Three approaches, pick by project:
+
+| Approach | Best For | Tool |
+|----------|----------|------|
+| **Scroll-driven frame animation** | Product reveals, material transitions | Canvas + FFmpeg + WEBP frames |
+| **Interactive 3D (no-code)** | 3D heroes, product showcases, animated icons | Spline (`@splinetool/react-spline`) |
+| **Programmatic 3D** | Custom shaders, complex scenes, VR/AR | React Three Fiber (`@react-three/fiber`) |
+
+### Scroll Frame Animation (Apple-Style)
+
+Extract ~180 frames from a transition video, convert to WEBP, render on `<canvas>` synced to scroll position. Produces the "digital flipbook" effect seen on Apple product pages.
+
+**Visual transformation patterns:** Deconstruction (product breaks apart), X-ray transparency (reveal internals), Additive construction (build from nothing), Material metamorphosis (material transitions), Scale reveal (macro to full view).
+
+**Performance rules:**
+- Canvas over DOM — draw to `<canvas>`, never swap `<img>` elements
+- WEBP format — 25-35% smaller than JPEG
+- Progressive preloading — first 30 frames immediately, rest in background
+- `requestAnimationFrame` — never update canvas directly in scroll handler
+- 120-180 frames for 4-6 second animations; more is wasteful
+
+### Spline Integration (React/Next.js)
+
+```bash
+npm install @splinetool/react-spline @splinetool/runtime
+```
+
+```tsx
+import { lazy, Suspense } from 'react';
+const Spline = lazy(() => import('@splinetool/react-spline'));
+
+// Always lazy-load — Spline scenes are 2-10MB
+<Suspense fallback={<div className="h-[600px] bg-muted animate-pulse" />}>
+  <Spline scene="https://prod.spline.design/xxx/scene.splinecode" />
+</Suspense>
+```
+
+**Spline features:** Text-to-3D generation, interactive events (click/hover/scroll), physics engine, state machines with automatic interpolation, webhooks for real-time data. Exports to React, Next.js, Swift, Kotlin, Webflow, Framer.
+
+**Performance:** Merge complex objects into single meshes, self-host `.splinecode` files, use `renderOnDemand` (default: true), keep scenes under 100k polygons.
+
+### AI-Assisted Design Pipeline
+
+```
+AI Image Gen (start/end keyframes) → AI Video (smooth transition) → FFmpeg (extract frames) → Code (scroll animation)
+```
+
+**Rules:** Background colors must match the website section. Keep transitions simple (no spinning/distortion). Use design galleries (Godly.website, Awwwards.com) as visual references instead of text-only descriptions.
+
+See: [references/3d-and-immersive-web.md](references/3d-and-immersive-web.md)
+
+---
+
+## 20. Mandatory Pre-Design Context
 
 **Before writing any UI code, gather this context (ask if not provided):**
 
@@ -915,12 +970,13 @@ Audit any UI:
 - [**accessibility.md**](references/accessibility.md): WCAG 2.2 AA checklist, ARIA patterns, focus management, screen readers, keyboard nav
 - [**components-and-states.md**](references/components-and-states.md): Component state matrix (12x9), button/input/card/modal/toast patterns
 
-### Extended Design (Sections 11-18)
+### Extended Design (Sections 11-19)
 - [**ecosystem-and-libraries.md**](references/ecosystem-and-libraries.md): shadcn/ui, Aceternity UI, Magic UI, Motion, GSAP, Lenis, 21st.dev, signature moment recipes, component name lookups
 - [**design-psychology.md**](references/design-psychology.md): Gestalt principles, Fitts's/Hick's/Miller's/Jakob's Law, Doherty Threshold, Von Restorff, Peak-End Rule, Zeigarnik, cognitive load, F/Z-pattern scanning, Weber's Law
 - [**advanced-patterns.md**](references/advanced-patterns.md): Multi-step forms, inline validation, smart defaults, autofill, tables, skeleton loading, empty states, optimistic UI, toasts, progress indicators, error handling, onboarding
 - [**cutting-edge-css-2024-2026.md**](references/cutting-edge-css-2024-2026.md): View Transitions, Scroll-Driven Animations, Anchor Positioning, @starting-style, Popover API, dialog, :has(), @layer, @scope, subgrid, color-mix(), light-dark()
 - [**performance-and-polish.md**](references/performance-and-polish.md): Core Web Vitals, font/image optimization, CSS performance, animation performance, subpixel rendering, focus indicators, reduced motion, high contrast, fluid clamp(), logical properties, viewport units
+- [**3d-and-immersive-web.md**](references/3d-and-immersive-web.md): Scroll-driven frame animations, Spline 3D integration, React Three Fiber, AI-assisted design pipelines, immersive web patterns, `<model-viewer>` for e-commerce
 
 ---
 
@@ -930,6 +986,6 @@ Audit any UI:
 
 **Community skills:** Anthropic frontend-design, pbakaus/impeccable (anti-slop, UX writing, optical adjustments), ibelick/ui-skills (motion performance, accessibility audit, CSS techniques), nextlevelbuilder/ui-ux-pro-max (searchable style/pattern database), wondelai/skills (12 design skills).
 
-**Libraries & ecosystem:** shadcn/ui, Aceternity UI, Magic UI, Motion (Framer Motion), GSAP, Lenis, 21st.dev, Animate UI, Motion Primitives, Tailwind CSS.
+**Libraries & ecosystem:** shadcn/ui, Aceternity UI, Magic UI, Motion (Framer Motion), GSAP, Lenis, 21st.dev, Animate UI, Motion Primitives, Tailwind CSS, Spline, React Three Fiber.
 
 **Agency craft:** Locomotive, Studio Freight, AREA 17, Active Theory, Hello Monday. Framer template trends (5,800+ templates analyzed).

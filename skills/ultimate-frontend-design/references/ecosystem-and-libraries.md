@@ -9,6 +9,9 @@
 | React component animations | Motion (formerly Framer Motion) |
 | Scroll-driven narratives, pinning, timelines | GSAP + ScrollTrigger |
 | Smooth scrolling | Lenis |
+| Interactive 3D (no-code) | Spline (`@splinetool/react-spline`) |
+| Programmatic 3D / custom shaders | React Three Fiber + Drei |
+| Simple 3D product viewer / AR | `<model-viewer>` (Google) |
 | AI/agent interfaces | 21st.dev |
 | Design inspiration | Framer templates |
 
@@ -20,6 +23,7 @@ shadcn/ui (base) + Tailwind CSS (styling)
   + GSAP + ScrollTrigger (scroll-driven sections)
   + Lenis (smooth scroll)
   + Aceternity/Magic UI (hero effects, backgrounds)
+  + Spline (interactive 3D elements, optional)
 ```
 
 ---
