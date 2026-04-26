@@ -895,6 +895,64 @@ See: [references/3d-and-immersive-web.md](references/3d-and-immersive-web.md)
 
 ---
 
+## 21. DESIGN.md Presets & Claude Design Workflow
+
+**Core concept:** A `DESIGN.md` file is a single Markdown file that encodes a brand's visual language (color tokens, type scale, components, rationale per choice) in a format AI design agents can act on. It sits between a Figma export (too literal, no why) and a brand PDF (too loose, not actionable). Anthropic's [Claude Design](https://claude.ai/design) consumes a DESIGN.md and scaffolds a full UI kit in one shot. The community-curated index lives at [VoltAgent/awesome-claude-design](https://github.com/VoltAgent/awesome-claude-design) (68 ready presets, MIT).
+
+**Local index for Ahmad:** `C:\Users\ahmad\Desktop\Claude\awesome-claude-design\` (cloned). The README is the browsable list, links out to getdesign.md for individual file downloads.
+
+**When to use a DESIGN.md preset:**
+
+| Situation | Use a preset? |
+|-----------|--------------|
+| User says "make it feel like Linear / Vercel / Stripe / Notion" | Yes, grab the matching preset, skip the brand-tone discovery question |
+| Greenfield product with no brand yet | Yes, pick 2 to 3 candidate presets, show the user, let them choose |
+| User has an existing design system (shadcn, Material, Apple HIG) | No, follow their system per section 20 |
+| User wants something distinctive, not a known brand clone | Skip preset, do the full Pre-Design Context discovery |
+
+**Two integration paths:**
+
+### Path A: claude.ai/design (Anthropic's hosted workspace)
+
+1. Browse `awesome-claude-design/README.md` (or getdesign.md)
+2. Click through to the preset's preview, download its `DESIGN.md`
+3. Open [claude.ai/design](https://claude.ai/design)
+4. Either: create a new design system and upload the file under "Add assets", or attach the file in a prototype chat and prompt "Create a design system from this DESIGN.md"
+5. Iterate inside the Claude Design canvas, the design system stays sticky across screens
+
+### Path B: feed the DESIGN.md to this skill as Pre-Design Context
+
+1. Pick a preset from the local index
+2. Read the file content into the conversation as Pre-Design Context (section 20 inputs)
+3. The DESIGN.md fills in: brand tone, color system, type scale, component vibe, often the existing-design-system field too
+4. Skip the discovery questions that the file already answers, ask only about user, core action, platform
+5. Proceed with the Design Process below using the preset as the foundation
+
+**Preset selection heuristic:**
+
+| User intent / product | Likely preset family |
+|-----------------------|----------------------|
+| Dev tools, productivity, B2B SaaS | Linear, Vercel, Raycast, Cursor, Arc |
+| Fintech, banking, finance | Stripe, Robinhood, Mercury, Wise, Revolut |
+| AI products, chat interfaces | Anthropic, OpenAI, Perplexity, Cluely |
+| Content / publishing / blogs | Substack, Medium, Notion, Ghost |
+| Consumer / lifestyle / DTC | Figma, Airbnb, Spotify, Apple Music |
+| Enterprise / data-heavy | Databricks, Snowflake, Datadog, Tableau |
+
+**Authoring a custom DESIGN.md (when no preset fits):**
+
+Required sections:
+- **Tokens:** colors (primary, neutral, semantic), type scale, spacing scale, radii, shadows, durations
+- **Components:** at minimum buttons, inputs, cards, with rationale per variant
+- **Voice:** tone of UI copy (one sentence)
+- **Why:** 2 to 3 sentences explaining the soul of the system, what it optimizes for, what it rejects
+
+Save to the project root as `DESIGN.md` so future Claude sessions pick it up automatically (it sits next to AGENTS.md / CLAUDE.md as a parallel agent-readable spec).
+
+**Maintenance:** the awesome-claude-design repo ships new presets weekly. add a `git pull` on the local clone to your daily-maintenance.mjs to stay current.
+
+---
+
 ## Design Process
 
 ### 1. Grayscale First
@@ -977,6 +1035,14 @@ Audit any UI:
 - [**cutting-edge-css-2024-2026.md**](references/cutting-edge-css-2024-2026.md): View Transitions, Scroll-Driven Animations, Anchor Positioning, @starting-style, Popover API, dialog, :has(), @layer, @scope, subgrid, color-mix(), light-dark()
 - [**performance-and-polish.md**](references/performance-and-polish.md): Core Web Vitals, font/image optimization, CSS performance, animation performance, subpixel rendering, focus indicators, reduced motion, high contrast, fluid clamp(), logical properties, viewport units
 - [**3d-and-immersive-web.md**](references/3d-and-immersive-web.md): Scroll-driven frame animations, Spline 3D integration, React Three Fiber, AI-assisted design pipelines, immersive web patterns, `<model-viewer>` for e-commerce
+
+### Curated External Sources (added Apr 2026)
+- [**component-libraries-and-tools.md**](references/component-libraries-and-tools.md): Aceternity UI, 21st.dev, Unicorn Studio, Boneyard, Design Arena, Open Session, Marc Kaz HTML/WebGL pattern. When to reach for which.
+- [**whatsapp-design-intake.md**](references/whatsapp-design-intake.md): Master log of design signals curated from Feb to Apr 2026 sources. Each entry maps to where it landed in the skill. Includes refresh procedure.
+
+## Companion skill: claude-design-systems
+
+For project-wide design contracts (DESIGN.md), Jens Heitmann three systems, Nano Banana 2 visual loop, Stitch workflows, premium build playbooks, and meta system design, see the sibling [`claude-design-systems`](../claude-design-systems/SKILL.md) skill bundle.
 
 ---
 
