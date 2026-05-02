@@ -1,10 +1,10 @@
 ---
 name: ultimate-frontend-design
-description: 'Complete frontend design system for web and mobile apps. Use on ANY UI task: building screens, reviewing designs, fixing layouts, choosing colors, adding animation, improving usability, or designing components. Covers visual hierarchy, typography, spacing, color systems, depth, motion, usability, accessibility, mobile-native patterns (iOS/Android), components, ecosystem libraries, 3D/immersive web (Spline, R3F, scroll-driven frame animations), forms, data display, design psychology, modern CSS, performance, and interaction design. Scores every output 0-10 with weighted rubric. Backed by 13 reference files with 10,000+ lines of patterns, code, and techniques.'
+description: 'Complete frontend design system for web and mobile apps. Use on ANY UI task: building screens, reviewing designs, fixing layouts, choosing colors, adding animation, improving usability, or designing components. Covers visual hierarchy, typography, spacing, color systems, depth, motion, usability, accessibility, mobile-native patterns (iOS/Android), components, ecosystem libraries, 3D/immersive web (Spline, R3F, scroll-driven frame animations), forms, data display, design psychology, modern CSS, performance, and interaction design. Scores every output 0-10 with weighted rubric. Backed by 17 reference files with 10,000+ lines of patterns, code, techniques, plus a curated ecosystem map (impeccable, design-council, kami, gsap-skills, awesome-claude-design, animations.dev, Aceternity, Design Arena, Joshua Stevenson and Kyle Whitrow CC marketplace) and ahmad personal style rules.'
 license: MIT
 metadata:
   author: synthesized
-  version: "2.0.0"
+  version: "2.2.0"
 ---
 
 # Ultimate Frontend Design System
@@ -1039,6 +1039,17 @@ Audit any UI:
 ### Curated External Sources (added Apr 2026)
 - [**component-libraries-and-tools.md**](references/component-libraries-and-tools.md): Aceternity UI, 21st.dev, Unicorn Studio, Boneyard, Design Arena, Open Session, Marc Kaz HTML/WebGL pattern. When to reach for which.
 - [**whatsapp-design-intake.md**](references/whatsapp-design-intake.md): Master log of design signals curated from Feb to Apr 2026 sources. Each entry maps to where it landed in the skill. Includes refresh procedure.
+- [**design-ecosystem.md**](references/design-ecosystem.md): Curated map of every external Claude Code skill, plugin, library, and tool that complements this one. Includes a routing table (which tool for which job) and Ahmad personal style rules.
+- [**impeccable-integration.md**](references/impeccable-integration.md): Full integration guide for `pbakaus/impeccable`. All 23 commands, 7 reference files, anti-patterns, install steps, routing rules.
+
+## Personal Style Rules (Ahmad)
+
+These overrides apply automatically when designing for `ahmadmosama@gmail.com`. They sit on top of the rubric. A 9/10 visual that violates them ships as 6/10.
+
+1. **Palette ban:** never default to navy, black, blue, or purple as the dominant text color. Use warmer or neutral grays for body text. Pick accent colors outside the blue/purple spectrum unless explicitly requested. Source: `feedback_no_dark_font_palette.md`.
+2. **UI copy tone:** for any user-facing copy (button labels, error states, empty states, marketing prose, microcopy), follow ahmad's writing tone: lowercase starts, no dashes of any type, contractions always (it's, don't, can't), short and direct, no formal openers, "please" at the end not the beginning, max 1 emoji. Source: `feedback_writing_tone.md`.
+
+Full ecosystem context and routing logic lives in [`references/design-ecosystem.md`](references/design-ecosystem.md).
 
 ## Companion skill: claude-design-systems
 
@@ -1050,7 +1061,7 @@ For project-wide design contracts (DESIGN.md), Jens Heitmann three systems, Nano
 
 **Books & standards:** Refactoring UI (Wathan & Schoger), The Design of Everyday Things (Don Norman), Don't Make Me Think (Krug), On Web Typography (Santa Maria), Hooked (Nir Eyal), Laws of UX (Yablonski), Apple Human Interface Guidelines, Material Design 3 (Google), WCAG 2.2, Nielsen's 10 Usability Heuristics.
 
-**Community skills:** Anthropic frontend-design, pbakaus/impeccable (anti-slop, UX writing, optical adjustments), ibelick/ui-skills (motion performance, accessibility audit, CSS techniques), nextlevelbuilder/ui-ux-pro-max (searchable style/pattern database), wondelai/skills (12 design skills).
+**Community skills:** see [`references/design-ecosystem.md`](references/design-ecosystem.md) for the full curated map. Headlines: Anthropic frontend-design, pbakaus/impeccable (24k+ stars, 23 commands, anti-patterns, full guide in [`references/impeccable-integration.md`](references/impeccable-integration.md)), sjsyrek/design-council (11-agent peer-debate plugin), ibelick/ui-skills, nextlevelbuilder/ui-ux-pro-max, wondelai/skills, tw93/kami (resumes/decks/portfolios), greensock/gsap-skills, VoltAgent/awesome-claude-design (68 DESIGN.md scaffolds), animations.dev (Emil Kowalski, Linear), Design Arena (designarena.ai), and the Joshua Stevenson and Kyle Whitrow CC marketplace (cro-methodology, design-everyday-things, design-sprint, hooked-ux, improve-retention, ios-hig-design, lean-ux, microinteractions, refactoring-ui, top-design, ux-heuristics, web-typography).
 
 **Libraries & ecosystem:** shadcn/ui, Aceternity UI, Magic UI, Motion (Framer Motion), GSAP, Lenis, 21st.dev, Animate UI, Motion Primitives, Tailwind CSS, Spline, React Three Fiber.
 

@@ -4,6 +4,8 @@ A complete, opinionated design framework for [Claude Code](https://claude.com/cl
 
 Built from **Refactoring UI, Apple HIG, Material Design 3, WCAG 2.2, Nielsen's heuristics, Don Norman's design principles, Gestalt psychology, cognitive load theory**, and the craft standards of award-winning agencies.
 
+> **v2.2.0 (2026-05-03).** Added a curated `design-ecosystem.md` reference (impeccable, design-council, kami, gsap-skills, awesome-claude-design, animations.dev, Aceternity, Design Arena, Joshua Stevenson and Kyle Whitrow CC marketplace), a full `impeccable-integration.md` guide (23 commands, 7 reference files, anti-patterns, install steps), and a Personal Style Rules section in SKILL.md (palette ban + UI copy tone for ahmadmosama@gmail.com).
+>
 > **v2.1.0 (2026-04-26).** Added `claude-design-systems` sibling skill (DESIGN.md contract, Jens Heitmann three systems, Nano Banana 2 workflow, premium build playbooks). Added Section 19 (3D & immersive web). Plugin now ships **two skills** in one install.
 
 ## Plugin Contents
