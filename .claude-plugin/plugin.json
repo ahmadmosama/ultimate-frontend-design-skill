@@ -1,7 +1,7 @@
 {
   "name": "ultimate-frontend-design",
-  "version": "2.0.0",
-  "description": "Complete frontend design system skill for Claude Code. 19 core sections + 12 reference files covering visual hierarchy, typography, color, motion, accessibility, mobile patterns, and more.",
+  "version": "2.1.0",
+  "description": "Complete frontend design plugin for Claude Code. Ships TWO skills: (1) ultimate-frontend-design, 20 core sections + 15 reference files covering visual hierarchy, typography, color, motion, accessibility, mobile patterns, 3D & immersive web, modern CSS 2024-2026, performance, and design psychology, scored 0-10 with a weighted rubric. (2) claude-design-systems, DESIGN.md contract pattern, Jens Heitmann three systems, Nano Banana 2 visual workflow, and premium build playbooks for using Claude Code itself as a project-wide design system.",
   "author": "ahmadmosama",
   "license": "MIT",
   "homepage": "https://github.com/ahmadmosama/ultimate-frontend-design-skill"

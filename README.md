@@ -4,11 +4,24 @@ A complete, opinionated design framework for [Claude Code](https://claude.com/cl
 
 Built from **Refactoring UI, Apple HIG, Material Design 3, WCAG 2.2, Nielsen's heuristics, Don Norman's design principles, Gestalt psychology, cognitive load theory**, and the craft standards of award-winning agencies.
 
+> **v2.1.0 (2026-04-26).** Added `claude-design-systems` sibling skill (DESIGN.md contract, Jens Heitmann three systems, Nano Banana 2 workflow, premium build playbooks). Added Section 19 (3D & immersive web). Plugin now ships **two skills** in one install.
+
+## Plugin Contents
+
+This plugin installs **two complementary skills**:
+
+| Skill | Invoke | Use For |
+|-------|--------|---------|
+| `ultimate-frontend-design` | `/ultimate-frontend-design` | Per-screen UI work: building, reviewing, scoring 0-10 |
+| `claude-design-systems` | `/claude-design-systems` | Project-wide: set a DESIGN.md contract Claude reuses every turn |
+
+Both are auto-installed when you install the plugin (Option 1 below) or can be copied individually (Options 2-3).
+
 ## What It Does
 
 Use on **any** UI task: building screens, reviewing designs, fixing layouts, choosing colors, adding animation, improving usability, or designing components.
 
-**19 core sections + 12 deep-dive reference files** covering:
+**20 core sections + 15 deep-dive reference files** covering:
 
 - Visual hierarchy, typography, spacing
 - Color systems, depth, shadows
